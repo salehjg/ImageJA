@@ -327,12 +327,18 @@ public class Roi extends Object implements Cloneable, java.io.Serializable, Iter
 		if (angle<0.0)
 			angle += 180.0;
 		//breadth = getFeretBreadth(poly, angle, x1, y1, x2, y2);
-		double[] a = new double[5];
+		double[] a = new double[9];
 		a[0] = diameter;
 		a[1] = angle;
 		a[2] = min;
 		a[3] = feretX;
 		a[4] = feretY;
+
+		a[5] = poly.xpoints[p1];
+		a[6] = poly.ypoints[p1];
+		a[7] = poly.xpoints[p2];
+		a[8] = poly.ypoints[p2];
+
 		return a;
 	}
 	

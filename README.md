@@ -14,8 +14,7 @@ ImageJ 1.x Fork, Customized for Landmark Analysis
 * مختصات مرکز و گوشه بالا سمت چپ
 * مستطیل محاطی
 * مستطیل محیطی
-* شبیه ترین مستطیل
-* به شکل مورد نظر (برگ)
+* شبیه ترین مستطیل به شکل برگ
 
 # Details
 
@@ -35,7 +34,7 @@ ImageJ 1.x Fork, Customized for Landmark Analysis
 | 12 | Centroid | WillBe |  |
 | 13 | Perimeter |  |  |
 | 14 | Fit ellipse | WillBe |  |
-| 15 | Feret's diameter | WillBe |  |
+| 15 | Feret's diameter | True |  |
 | 16 | Median |  |  |
 | 17 | Kurtosis |  |  |
 | 18 | Stack position |  |  |

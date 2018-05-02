@@ -12,6 +12,7 @@ import ij.plugin.Straightener;
 import ij.plugin.frame.RoiManager;
 import ij.util.Tools;
 import ij.macro.Interpreter;
+import org.jcp.xml.dsig.internal.dom.DOMUtils;
 
 /** This plugin implements ImageJ's Analyze/Measure and Analyze/Set Measurements commands. */
 public class Analyzer implements PlugInFilter, Measurements {
@@ -634,6 +635,10 @@ public class Analyzer implements PlugInFilter, Measurements {
 			boolean extras = true;
 			double FeretDiameter=Double.NaN, feretAngle=Double.NaN, minFeret=Double.NaN,
 				feretX=Double.NaN, feretY=Double.NaN;
+			double  feret_contact1_x=Double.NaN,
+					feret_contact1_y=Double.NaN,
+					feret_contact2_x=Double.NaN,
+					feret_contact2_y=Double.NaN;
 			Roi roi2 = roi;
 			if (roi2==null && imp!=null)
 				roi2 = new Roi(0, 0, imp.getWidth(), imp.getHeight());
@@ -645,6 +650,11 @@ public class Analyzer implements PlugInFilter, Measurements {
 					minFeret = a[2];
 					feretX = a[3];
 					feretY = a[4];
+
+					feret_contact1_x = a[5];
+					feret_contact1_y = a[6];
+					feret_contact2_x = a[7];
+					feret_contact2_y = a[8];
 				}
 			}
 			rt.addValue(ResultsTable.FERET, FeretDiameter);
@@ -652,6 +662,11 @@ public class Analyzer implements PlugInFilter, Measurements {
 			rt.addValue(ResultsTable.FERET_Y, feretY);
 			rt.addValue(ResultsTable.FERET_ANGLE, feretAngle);
 			rt.addValue(ResultsTable.MIN_FERET, minFeret);
+
+			rt.addValue(ResultsTable.FERET_CONTACT1_X, feret_contact1_x);
+			rt.addValue(ResultsTable.FERET_CONTACT1_Y, feret_contact1_y);
+			rt.addValue(ResultsTable.FERET_CONTACT2_X, feret_contact2_x);
+			rt.addValue(ResultsTable.FERET_CONTACT2_Y, feret_contact2_y);
 		}
 		if ((measurements&INTEGRATED_DENSITY)!=0) {
 			rt.addValue(ResultsTable.INTEGRATED_DENSITY,stats.area*stats.mean);
